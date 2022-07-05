@@ -24,6 +24,7 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True,
                               upload_to='product_images')
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
+    company = models.CharField(null=True, blank=True, max_length=50)
 
     def __str__(self):
         return self.name
