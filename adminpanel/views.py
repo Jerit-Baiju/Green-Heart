@@ -8,9 +8,7 @@ from . import forms
 # Create your views here.
 
 def home(request):
-    context = {
-        
-    }
+    context = {}
     return render(request, 'admin/home.html', context)
 
 def add_product(request):
