@@ -1,4 +1,8 @@
-{% extends 'main.html' %}
-{% block content %}
-{{categories}}
+{% extends 'main.html' %} {% block content %}
+<div class="container text-center">
+  {% for item in categories %} {{item.name}}
+  <br />
+  {% endfor %}
+</div>
+
 {% endblock content %}

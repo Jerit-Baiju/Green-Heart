@@ -1,5 +1,5 @@
 {% extends 'main.html' %} {% block content %}
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="container">
     {{form.as_p}}

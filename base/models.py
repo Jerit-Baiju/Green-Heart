@@ -11,7 +11,6 @@ class ProductPack(models.Model):
     def __str__(self):
         return f"{self.quantity} LTR"
 
-.
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=50, unique=True)

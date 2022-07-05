@@ -16,9 +16,9 @@ def add_product(request):
         'form' : forms.ProductForm
     }
     if request.method == 'POST':
-        product = forms.ProductForm(request.POST, request.FILES)
-        if product.is_valid():
-            product.save()
+        form = forms.ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
             return HttpResponse('SUCCESS')
         else:
             return HttpResponse('FAILED')
@@ -45,6 +45,6 @@ def add_category(request):
 
 def categories(request):
     context = {
-        'categories': ProductCategory.objects.all('name')
+        'categories': ProductCategory.objects.all()
     }
     return render(request, 'admin/categories.html', context)
