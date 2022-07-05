@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
 from base.models import Product, ProductPack
@@ -11,11 +10,7 @@ def index(request):
     }
     return render(request, 'base/index.html', context)
 
-def categories(request,category):
-    context = {
-        'products': Product.objects.get(category=category)
-    }
-    return render(request,context)
+
 
 # def product(request, collection, pk):
 #     return render(request)
