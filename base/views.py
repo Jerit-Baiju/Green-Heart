@@ -8,6 +8,10 @@ def index(request):
             {
                 'name': 'product 1',
                 'img': ''
+            },
+            {
+                'name': 'product 2',
+                'img' :''
             }
         ]
     }

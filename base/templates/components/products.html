@@ -1,0 +1,21 @@
+<section id="products" class="container">
+  <h2 class="text-center">Products</h2>
+  <div class="products p-3">
+    <div class="row">
+      {% for product in products %}
+      <div class="col-14 col-md-3 text-center" style="padding-top: 1em">
+        <div class="card my-card">
+          <div class="card-body">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0557/7064/4689/products/NewAcrobat200g_01_2048x2048.png?v=1654929971"
+              width="200"
+              alt=""
+            />
+            <p class="card-text fw-light">{{product.name}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
