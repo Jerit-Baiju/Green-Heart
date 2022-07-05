@@ -7,5 +7,6 @@ class ProductPack(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=30)
+    image = models.ImageField(null=True, default='product.jpg')
     packs = models.ForeignKey(ProductPack, on_delete=models.CASCADE)
 
