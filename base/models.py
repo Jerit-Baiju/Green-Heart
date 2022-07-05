@@ -25,6 +25,7 @@ class Product(models.Model):
                               upload_to='product_images')
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     company = models.CharField(null=True, blank=True, max_length=50)
+    pack = models.ForeignKey(ProductPack, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
