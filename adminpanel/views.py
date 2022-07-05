@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from base.models import ProductCategory
@@ -20,6 +21,9 @@ def add_product(request):
         product = forms.ProductForm(request.POST, request.FILES)
         if product.is_valid():
             product.save()
+            return HttpResponse('SUCCESS')
+        else:
+            return HttpResponse('FAILED')
     return render(request, 'admin/add_product.html', context)
 
 def add_pack(request):
@@ -36,6 +40,9 @@ def add_category(request):
         form = forms.CategoryForm(request.POST)
         if form.is_valid():
             form.save()
+            return HttpResponse('SUCCESS')
+        else:
+            return HttpResponse('FAILED')
     return render(request,'admin/add_category.html', context)
 
 def categories(request):
