@@ -5,6 +5,7 @@ class ProductForm(ModelForm):
     class Meta:
         model = models.Product
         fields = '__all__'
+        exclude = ['pack']
     
 
 class PackForm(ModelForm):

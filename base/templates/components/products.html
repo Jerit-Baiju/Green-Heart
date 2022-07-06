@@ -5,16 +5,13 @@
       {% for product in products %}
       <div class="col-14 col-md-3 text-center" style="padding-top: 1em">
         <div class="card my-card">
-          <div class="card-body">
-            <img
-              src="{{product.image.url}}"
-              width="200"
-              alt=""
-            />
-            <p class="card-text fw-light">{{product.name}}</p>
-            <p class="card-text fw-light">{{product.category}}</p>
-
-          </div>
+          <a href="/{{product.category}}/{{product.id}}">
+            <div class="card-body">
+              <img src="{{product.image.url}}" width="200" alt="" />
+              <p class="card-text fw-light">{{product.name}}</p>
+              <p class="card-text fw-light">{{product.category}}</p>
+            </div>
+          </a>
         </div>
       </div>
       {% endfor %}

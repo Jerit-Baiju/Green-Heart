@@ -4,6 +4,7 @@ from base.models import Product, ProductPack
 
 # Create your views here.
 
+
 def index(request):
     context = {
         'products': Product.objects.all()
@@ -11,6 +12,15 @@ def index(request):
     return render(request, 'base/index.html', context)
 
 
-
-# def product(request, collection, pk):
-#     return render(request)
+def product(request, category, pk):
+    product_model = Product.objects.get(pk=pk)
+    # try:
+    pack = ProductPack.objects.get(product=product_model)
+    # except:
+    #     pack = ''
+    context = {
+        'product': product_model,
+        'category': category,
+        'pack': pack,
+    }
+    return render(request, 'base/product.html', context)

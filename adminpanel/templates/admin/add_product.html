@@ -3,6 +3,8 @@
   {% csrf_token %}
   <div class="container">
     {{form.as_p}}
+    {{packs}}
+    <a href="{% url 'add-pack' product.pk %}">ADD PACK</a><br>
     <button type="submit">ADD PRODUCT</button>
   </div>
 </form>

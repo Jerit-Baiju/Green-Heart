@@ -1,0 +1,10 @@
+{% extends 'main.html' %} {% block content %}
+<div class="container text-center">
+  <img src="{{product.image.url}}" width="300" alt="" srcset="" /> <br>
+  {{product.name}} <br>
+  {{pack}}
+  {{pack.price}}
+
+</div>
+
+{% endblock content %}
