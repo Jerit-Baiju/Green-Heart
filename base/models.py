@@ -18,13 +18,20 @@ class ProductCategory(models.Model):
         return self.name
 
 
+class Company(models.Model):
+    name = models.CharField(null=True, blank=True, max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Product(models.Model):
     name = models.CharField(max_length=30, unique=True)
     image = models.ImageField(null=True, blank=True,
                               upload_to='Products')
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     pack = models.ManyToManyField(ProductPack)
-    company = models.CharField(null=True, blank=True, max_length=50, unique=True)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
