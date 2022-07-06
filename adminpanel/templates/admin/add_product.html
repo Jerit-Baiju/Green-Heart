@@ -2,10 +2,10 @@
 <form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="container">
-    {{form.as_p}}
-    {{packs}}
+    {{product_form.as_p}}
+    {{pack_form.as_p}}
     {% comment %} <a href="{% url 'add-pack' %}">ADD PACK</a><br> {% endcomment %}
-    <button type="submit">ADD PRODUCT</button>
+    <input type="submit" value="ADD PROUCT">
   </div>
 </form>
 {% endblock content %}
