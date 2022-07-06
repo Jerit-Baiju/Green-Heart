@@ -38,18 +38,6 @@ def add_pack(request, pk):
             return HttpResponse('FAILED')
     return render(request,'admin/add_pack.html', context)
 
-def add_category(request):
-    context = {
-        'form' : forms.CategoryForm
-    }
-    if request.method == 'POST':
-        form = forms.CategoryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponse('SUCCESS')
-        else:
-            return HttpResponse('FAILED')
-    return render(request,'admin/add_category.html', context)
 
 def categories(request):
     context = {

@@ -4,7 +4,7 @@
   <div class="container">
     {{form.as_p}}
     {{packs}}
-    <a href="{% url 'add-pack' product.pk %}">ADD PACK</a><br>
+    {% comment %} <a href="{% url 'add-pack' %}">ADD PACK</a><br> {% endcomment %}
     <button type="submit">ADD PRODUCT</button>
   </div>
 </form>

@@ -1,9 +1,0 @@
-{% extends 'main.html' %} {% block content %}
-<form action="" method="post">
-  {% csrf_token %}
-  <div class="container">
-    {{form.as_p}}
-    <input type="submit" value="ADD CATEGORY">
-  </div>
-</form>
-{% endblock content %}
