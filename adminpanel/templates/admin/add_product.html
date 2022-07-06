@@ -1,11 +1,9 @@
 {% extends 'main.html' %} {% block content %}
 <form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}
-  <div class="container">
-    {{product_form.as_p}}
-    {{pack_form.as_p}}
-    {% comment %} <a href="{% url 'add-pack' %}">ADD PACK</a><br> {% endcomment %}
-    <input type="submit" value="ADD PROUCT">
+  <dic class="container">
+    
+  </dic>
   </div>
 </form>
 {% endblock content %}
