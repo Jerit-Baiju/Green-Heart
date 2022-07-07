@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from base.models import Company, ProductCategory, Product
+from base.models import Company, ProductCategory, Product, ProductPack
 
 from . import forms
 
@@ -22,12 +22,19 @@ def add_product(request):
         name = request.POST['name']
         company = request.POST['company']
         image = request.FILE['image']
+        category = request.POST['category']
+        quantity = request.POST['quantity']
+        price = request.POST['price']
+
+        pack = ProductPack.objects.create(quantity=quantity, price=price)
+        category = ProductCategory.objects.create(name=category)
+        company = Company.objects.create(name=company)
+        product = Product.objects.create(
+            name=name, company=company, image=image, pack=pack, category=category)
+
+        product.save()
+        return HttpResponse('SUCCESS')
         
-        if form.is_valid():
-            form.save()
-            return HttpResponse('SUCCESS')
-        else:
-            return HttpResponse('FAILED')
     return render(request, 'admin/add_product.html', context)
 
 
