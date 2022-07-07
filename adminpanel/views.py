@@ -7,13 +7,15 @@ from . import forms
 
 # Create your views here.
 
+
 def home(request):
     context = {}
     return render(request, 'admin/home.html', context)
 
+
 def add_product(request):
     context = {
-        
+        categories: ProductCategory.objects.all()
     }
     if request.method == 'POST':
         form = forms.ProductForm(request.POST, request.FILES)
@@ -24,9 +26,10 @@ def add_product(request):
             return HttpResponse('FAILED')
     return render(request, 'admin/add_product.html', context)
 
+
 def add_pack(request, pk):
     context = {
-        'form' : forms.PackForm,
+        'form': forms.PackForm,
         'product': Product.objects.get(pk=pk)
     }
     if request.method == 'POST':
@@ -36,7 +39,7 @@ def add_pack(request, pk):
             return HttpResponse('SUCCESS')
         else:
             return HttpResponse('FAILED')
-    return render(request,'admin/add_pack.html', context)
+    return render(request, 'admin/add_pack.html', context)
 
 
 def categories(request):
