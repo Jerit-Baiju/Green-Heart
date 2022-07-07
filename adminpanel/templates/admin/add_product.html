@@ -3,11 +3,11 @@
   {% csrf_token %}
   <div class="container">
     <label for="">Name:</label>
-    <input type="text" name='name'> <br>
+    <input required type="text" name='name'> <br>
     <div class="p-1"></div>
 
     <label for="">Company:</label>
-    <input type="text" name="company" id="" list="companies">
+    <input required type="text" name="company" id="" list="companies">
     <datalist id="companies">
       <select>
         {% for company in companies %}
@@ -18,11 +18,11 @@
     <div class="p-1"></div>
 
     <label for="">Image:</label>
-    <input type="file" name="image" id=""> <br>
+    <input required type="file" name="image" id=""> <br>
     <div class="p-1"></div>
 
     <label for="">Category:</label>
-    <input type="text" name="category" id="" list="categories">
+    <input required type="text" name="category" id="" list="categories">
     <datalist id="categories">
       <select>
         {% for category in categories %}
@@ -33,11 +33,11 @@
     <div class="p-1"></div>
 
     <label for="">Quantity:</label>
-    <input type="text" name="quantity"><br>
+    <input required type="text" name="quantity"><br>
     <div class="p-1"></div>
 
     <label for="">Price:</label>
-    <input type="text" name="price"><br>
+    <input required type="text" name="price"><br>
     <div class="p-1"></div>
 
     <input type="submit" value="ADD PRODUCT">

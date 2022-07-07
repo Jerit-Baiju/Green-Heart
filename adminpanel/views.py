@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from base.models import Company, ProductCategory, Product, ProductPack
+from base.models import Company, ProductCategory, Product
 
 from . import forms
 
@@ -15,26 +15,16 @@ def home(request):
 
 def add_product(request):
     context = {
-        'categories': ProductCategory.objects.all(),
-        'companies': Company.objects.all()
+        'product_form': forms.ProductForm,
+        'pack_form': forms.PackForm,
     }
     if request.method == 'POST':
-        name = request.POST['name']
-        company = request.POST['company']
-        image = request.POST['image']
-        category = request.POST['category']
-        quantity = request.POST['quantity']
-        price = request.POST['price']
-
-        pack = ProductPack.objects.create(quantity=quantity, price=price)
-        category = ProductCategory.objects.create(name=category)
-        company = Company.objects.create(name=company)
-        product = Product.objects.create(
-            name=name, company=company, image=image, pack=pack, category=category)
-
-        product.save()
-        return HttpResponse('SUCCESS')
-        
+        form1 = forms.ProductForm(request.POST, request.FILES)
+        form2 = forms.PackForm(request.POST)
+        # if form1.is_valid() and form2.is_valid():
+        form1.save()
+        form2.save()
+            
     return render(request, 'admin/add_product.html', context)
 
 
