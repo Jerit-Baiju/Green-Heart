@@ -12,10 +12,13 @@ class ProductPack(models.Model):
 
 
 class ProductCategory(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-
+    category = models.CharField(max_length=50, unique=True)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
     def __str__(self):
         return self.name
+
+class ProductCompany(models.Model):
+    company = models.CharField(max_length=50, unique=True)
 
 
 class Company(models.Model):

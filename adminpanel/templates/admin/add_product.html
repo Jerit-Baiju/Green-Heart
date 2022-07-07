@@ -2,6 +2,7 @@
 <form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="container">
+<<<<<<< HEAD
     <label for="">Name:</label>
     <input required type="text" name='name'> <br>
     <div class="p-1"></div>
@@ -41,6 +42,13 @@
     <div class="p-1"></div>
 
     <input type="submit" value="ADD PRODUCT">
+=======
+    {{product_form.as_p}}
+    {{category_form.as_p}}
+    {{pack_form.as_p}}
+
+    <button type="submit">ADD PRODUCT</button>
+>>>>>>> 22fb1924
   </div>
 
 </form>
