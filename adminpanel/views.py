@@ -13,7 +13,10 @@ def home(request):
 
 def add_product(request):
     context = {
-        'form' : forms.ProductForm
+        'product_form' : forms.ProductForm,
+        'category_form': forms.CategoryForm,
+        'pack_form': forms.PackForm
+
     }
     if request.method == 'POST':
         form = forms.ProductForm(request.POST, request.FILES)
