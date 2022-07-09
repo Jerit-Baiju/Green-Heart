@@ -35,10 +35,11 @@ def add_product(request):
         image = request.FILES['image']
         pack_type = request.POST['pack_name']
 
-        company_model = Company.objects.get_or_create(company_name=company)
-        category_model = Category.objects.get_or_create(category=category)
-        pack_model = ProductPack.objects.get_or_create(quantity=quantity,price=price,pack_type=pack_type)
-        Product.objects.create(name=name,image=image,category=category_model,company=company_model,pack=pack_model)
+        company_model, _ = Company.objects.get_or_create(company_name=company)
+        category_model, _ = Category.objects.get_or_create(category=category)
+        pack_model, _ = ProductPack.objects.get_or_create(quantity=quantity,price=price,pack_type=pack_type)
+        product = Product.objects.create(name=name,image=image,category=category_model,company=company_model)
+        product.pack.add(pack_model)
 
         return HttpResponse("Success")
 

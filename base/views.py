@@ -14,7 +14,7 @@ def index(request):
 
 
 def product(request, category, pk):
-    product_model = 'Product.objects.get(pk=pk)'
+    product_model = Product.objects.get(pk=pk)
     # try:
     pack = ProductPack.objects.get(product=product_model)
     # except:
