@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from base.models import Company, ProductCategory, Product
+# from base.models import Company, ProductCategory, Product
 
 from . import forms
 
@@ -31,7 +31,7 @@ def add_product(request):
 def add_pack(request, pk):
     context = {
         'form': forms.PackForm,
-        'product': Product.objects.get(pk=pk)
+        'product': 'Product.objects.get(pk=pk)'
     }
     if request.method == 'POST':
         form = forms.PackForm(request.POST)
@@ -45,6 +45,6 @@ def add_pack(request, pk):
 
 def categories(request):
     context = {
-        'categories': ProductCategory.objects.all()
+        'categories': 'ProductCategory.objects.all()'
     }
     return render(request, 'admin/categories.html', context)
