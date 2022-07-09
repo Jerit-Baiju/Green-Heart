@@ -34,6 +34,9 @@
 
     <label for="">Quantity:</label>
     <input required type="text" name="quantity"><br>
+    {% for pack_type in pack_types %}
+      <input type="radio" name="pack_name" id="{{pack_type}}" value="{{pack_type}}">
+    {% endfor %}
     <div class="p-1"></div>
 
     <label for="">Price:</label>
@@ -42,6 +45,8 @@
 
     <input type="submit" value="ADD PRODUCT">
   </div>
+
+  {{form1.name}}
 
 </form>
 {% endblock content %}
