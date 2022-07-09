@@ -12,11 +12,14 @@ class Category(models.Model):
         return self.category
     
 
-class Product_Pack(models.Model):
+class ProductPack(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.DecimalField(max_digits=10, decimal_places=2)
-    pack_type = models.TextChoices('KG','LTR')
-
+    pack_choices = (
+        ("KG","KG"),
+        ("LTR","LTR")
+    )
+    pack_type = models.CharField(max_length=10, choices=pack_choices,default='LTR')
     def __str__(self):
         return f"{self.quantity} {self.pack_type}"
     
@@ -26,7 +29,7 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='Products')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    # pack = models.ManyToManyField(Product_Pack)
+    pack = models.ManyToManyField(ProductPack)
 
     def __str__(self):
         return self.name
