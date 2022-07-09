@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from base.models import Company, ProductPack
+from base.models import Category, Company, Product, ProductPack
 
 
 
@@ -16,20 +16,31 @@ def home(request):
 
 
 def add_product(request):
+    pack_choices = ProductPack.pack_choices
+    pack_types = []
+    for choice in pack_choices:
+        pack_types.append(choice[0])
+
     context = {
-        'pack_types': ProductPack.pack_choices
+        'pack_types': pack_types
     }
     print(context)
     if request.method == 'POST':
+        print(request.POST)
         name = request.POST['name']
         company = request.POST['company']
         category = request.POST['category']
         quantity = request.POST['quantity']
         price = request.POST['price']
         image = request.FILES['image']
-        pack_type = request.POST['']
+        pack_type = request.POST['pack_name']
 
         company_model = Company.objects.get_or_create(company_name=company)
+        category_model = Category.objects.get_or_create(category=category)
+        pack_model = ProductPack.objects.get_or_create(quantity=quantity,price=price,pack_type=pack_type)
+        Product.objects.create(name=name,image=image,category=category_model,company=company_model,pack=pack_model)
+
+        return HttpResponse("Success")
 
             
     return render(request, 'admin/add_product.html', context)

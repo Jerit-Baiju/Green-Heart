@@ -33,10 +33,11 @@
     <div class="p-1"></div>
 
     <label for="">Quantity:</label>
-    <input required type="text" name="quantity"><br>
+    <input required type="text" name="quantity">
     {% for pack_type in pack_types %}
-      <input type="radio" name="pack_name" id="{{pack_type}}" value="{{pack_type}}">
-    {% endfor %}
+      <input required type="radio" name="pack_name" id="{{pack_type}}" value="{{pack_type}}">
+      <label for="{{pack_type}}">{{pack_type}}</label>
+    {% endfor %}<br>
     <div class="p-1"></div>
 
     <label for="">Price:</label>
