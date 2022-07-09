@@ -13,8 +13,8 @@ class Category(models.Model):
     
 
 class ProductPack(models.Model):
-    price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     pack_choices = (
         ("KG","KG"),
         ("LTR","LTR")
