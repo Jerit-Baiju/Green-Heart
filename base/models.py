@@ -22,7 +22,8 @@ class ProductPack(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     pack_choices = (
         ("KG", "KG"),
-        ("LTR", "LTR")
+        ("LTR", "LTR"),
+        ("ML","ML")
     )
     pack_type = models.CharField(
         max_length=10, choices=pack_choices, default='LTR')
