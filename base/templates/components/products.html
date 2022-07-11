@@ -7,9 +7,10 @@
         <div class="card my-card">
           <a href="/{{product.category}}/{{product.id}}">
             <div class="card-body">
-              <img src="{{product.image.url}}" width="200" alt="" />
+              <img src="{{product.image.url}}" style='width: 100%;' alt="" />
               <p class="card-text fw-light">{{product.name}}</p>
               <p class="card-text fw-light">{{product.category}}</p>
+              <p class='card-text fw-light'> hi {{product.pack.price}}</p>
             </div>
           </a>
         </div>

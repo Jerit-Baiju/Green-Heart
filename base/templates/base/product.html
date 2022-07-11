@@ -1,10 +1,15 @@
 {% extends 'main.html' %} {% block content %}
 <div class="container text-center">
-  <img src="{{product.image.url}}" width="300" alt="" srcset="" /> <br>
-  {{product.name}} <br>
-  {{pack}}
-  {{pack.price}}
+  <form action="" method="post">
+    {% csrf_token %}
+    <img src="{{product.image.url}}" width="300" alt="" srcset="" /> <br />
+    <h6>{{product.company}}</h6> <br />
+    <h4>name: {{product.name}}</h4>
+    <h5>category : {{product.category}}</h5>
+    <h2>RS. kijuib</h2>
 
+    <input type="url" name="" id="">
+  </form>
 </div>
 
 {% endblock content %}
