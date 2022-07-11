@@ -1,29 +1,31 @@
 {% extends 'main.html' %} {% block content %} {% load static %}
-<div class="container text-center">
+<div class="container">
   <form action="" method="post">
     {% csrf_token %}
-    <img src="{{product.image.url}}" width="300" alt="" srcset="" /> <br />
-    <h6>{{product.company}}</h6>
-    <br />
-    <h4>name: {{product.name}}</h4>
-    <h5>category : {{product.category}}</h5>
-    <h2 id="rs"></h2>
+    <div class="form-group text-center">
+      <img src="{{product.image.url}}" width="300" alt="" srcset="" />
+      <h4 class="form-text">Name: {{product.name}}</h4>
+      <h5 class="form-text">Category: {{product.category}}</h5>
+      <h6 class="form-text">Company: {{product.company}}</h6>
+      <h2 class="form-text" id="rs"></h2>
+      <div class="p-2">
+        <select class="btn btn-outline-secondary border-3 w-75" onchange="refresh_pack()" name="pack" id="pack">
+          {% for pack in packs %}
+          <option value="{{pack.id}}">{{pack}}</option>
+          {% endfor %}
+        </select>
+      </div>
 
-    <select class="form-select w-75 text-center" onchange="refresh_pack()" name="pack" id="pack">
-      {% for pack in packs %}
-      <option value="{{pack.id}}">{{pack}}</option>
-      {% endfor %}
-    </select>
-    <div class="p-4">
-      <input class="btn btn-secondary w-75" type="submit" value="BUY">
+      <div class="p-4">
+        <input class="btn btn-secondary w-75" type="submit" value="BUY" />
+      </div>
     </div>
-    
   </form>
 </div>
 
 <script>
-  const main_pack = "RS. "+{{main}}+".00"
-  const pack = [{% for pack in packs %}{{pack.price}}, {% endfor %} ]
+  const main_pack = "RS. " + {{ main }}+".00"
+  const pack = [{% for pack in packs %}{ { pack.price } }, {% endfor %} ]
 </script>
 <script src="{% static 'js/product.js' %}"></script>
 
