@@ -21,4 +21,6 @@ def product(request, category, pk):
         'packs': packs,
         'main': packs[0].price
     }
+    if request.method == "POST":
+        None
     return render(request, 'base/product.html', context)

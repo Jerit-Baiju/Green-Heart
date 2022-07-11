@@ -25,7 +25,6 @@ def add_product(request):
         'pack_types': pack_types
     }
     if request.method == 'POST':
-        print(request.POST)
         name = request.POST['name']
         company = request.POST['company']
         category = request.POST['category']
