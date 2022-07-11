@@ -9,12 +9,15 @@
       <h6 class="form-text">Company: {{product.company}}</h6>
       <h2 class="form-text" id="rs"></h2>
       <div class="p-2">
+        <label for="" class="form-text">Pack:</label>
         <select class="btn btn-outline-secondary border-3 w-75" onchange="refresh_pack()" name="pack" id="pack">
           {% for pack in packs %}
           <option value="{{pack.id}}">{{pack}}</option>
           {% endfor %}
         </select>
       </div>
+      <label class="form-text" for="">Quantity:</label>
+      <input type="number" class="" name="quantity" id="" value="1" step="1" min="1" max="10">
 
       <div class="p-4">
         <input class="btn btn-secondary w-75" type="submit" value="BUY" />
@@ -25,7 +28,7 @@
 
 <script>
   const main_pack = "RS. " + {{ main }}+".00"
-  const pack = [{% for pack in packs %}{ { pack.price } }, {% endfor %} ]
+  const pack = [{% for pack in packs %}{{ pack.price }}, {% endfor %} ]
 </script>
 <script src="{% static 'js/product.js' %}"></script>
 
