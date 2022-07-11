@@ -24,7 +24,6 @@ def add_product(request):
     context = {
         'pack_types': pack_types
     }
-    print(context)
     if request.method == 'POST':
         print(request.POST)
         name = request.POST['name']
