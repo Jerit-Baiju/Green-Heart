@@ -7,8 +7,11 @@ from base.models import Product
 
 def index(request):
     context = {
-        'products': Product.objects.all()
+        'products': Product.objects.all(),
     }
+    product = Product.objects.all()
+    for p in product:
+        print(p.pack.all())
     return render(request, 'base/index.html', context)
 
 
