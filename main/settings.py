@@ -33,6 +33,10 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    
+    'jazzmin',
+    'livereload',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,9 +46,6 @@ INSTALLED_APPS = [
 
     'base.apps.BaseConfig',
     'adminpanel.apps.AdminpanelConfig',
-
-    'livereload'
-
 ]
 
 MIDDLEWARE = [
@@ -153,4 +154,9 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
         'LOCATION': 'my_cache_table',
     }
+}
+
+JAZZMIN_SETTINGS = {
+    'site_title': 'Green Heart',
+    'site_header': 'Library'
 }
