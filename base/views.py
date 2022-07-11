@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from base.models import Product
 
-
 # Create your views here.
 
 
