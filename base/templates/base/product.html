@@ -3,17 +3,21 @@
   <form action="" method="post">
     {% csrf_token %}
     <img src="{{product.image.url}}" width="300" alt="" srcset="" /> <br />
-    <h6>{{product.company}}</h6> <br />
+    <h6>{{product.company}}</h6>
+    <br />
     <h4>name: {{product.name}}</h4>
     <h5>category : {{product.category}}</h5>
     <h2 id="rs"></h2>
 
-    <select onchange='refresh_pack()' name="pack" id="pack">
+    <select class="form-select w-75 text-center" onchange="refresh_pack()" name="pack" id="pack">
       {% for pack in packs %}
-        <option value="{{pack.id}}">{{pack}}</option>
+      <option value="{{pack.id}}">{{pack}}</option>
       {% endfor %}
     </select>
-
+    <div class="p-4">
+      <input class="btn btn-secondary w-75" type="submit" value="BUY">
+    </div>
+    
   </form>
 </div>
 
