@@ -26,7 +26,7 @@
         <input class="btn btn-secondary w-75" type="submit" value="BUY" />
       </div>
       <div class="p-1">
-        <a class="btn btn-secondary w-75" href="">EDIT PRODUCT</a>
+        <a class="btn btn-secondary w-75" href="{% url 'edit_product' category=category pk=product.id%}">EDIT PRODUCT</a>
       </div>
     </div>
   </form>

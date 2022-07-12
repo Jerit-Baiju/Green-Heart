@@ -8,8 +8,3 @@ function refresh_pack() {
   total = rate * quantity
   document.getElementById('total').innerText = "Total: Rs." + total + ".00/-"
 }
-
-function increase() {
-  document.getElementById("quantity").innerText = '34'
-    // document.getElementById("quantity").value + 1;
-}

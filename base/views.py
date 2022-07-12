@@ -25,10 +25,10 @@ def product(request, category, pk):
         None
     return render(request, 'base/product.html', context)
 
-def edit_product(request, category, pk,):
+def editProduct(request, category, pk,):
     product_model = Product.objects.get(pk=pk)
     context = {
         'product': product_model,
         'category': category,
     }
-    return redirect(request, 'base/edit_product', context)
+    return render(request, 'base/edit_product.html', context)
