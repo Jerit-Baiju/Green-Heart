@@ -13,7 +13,7 @@ def index(request):
 
 
 def product(request, category, pk):
-    product_model = Product.objects.get(pk=pk)
+    product_model = Product.objects.get(id=pk)
     packs = product_model.pack.all()
     context = {
         'product': product_model,
