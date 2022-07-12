@@ -17,13 +17,16 @@
         </select>
       </div>
       <label class="form-text" for="">Quantity:</label>
-      <input onchange="refresh_pack()" type="number" class="" name="quantity" id="" value="1" step="1" min="1" max="100">
+      <input onkeyup="refresh_pack()" onchange="refresh_pack()" on type="number" class="" name="quantity" id="quantity" value="1" step="1" min="1" max="1000">
       <div class="form-group p-3">
         <h1 class="text-danger" id="total"></h1>
       </div>
       
-      <div class="">
+      <div class="p-1">
         <input class="btn btn-secondary w-75" type="submit" value="BUY" />
+      </div>
+      <div class="p-1">
+        <a class="btn btn-secondary w-75" href="">EDIT PRODUCT</a>
       </div>
     </div>
   </form>
