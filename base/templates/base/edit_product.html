@@ -1,10 +1,13 @@
 {% extends 'main.html' %}
 {% block content %}
-    <div class="container text-center">
+    <div class="container">
         <form action="" method="post">
-        <img class="w-75" src="{{product.image.url}}" alt="{{product.name}}">
-        <h1 class="form-text">{{product.name}}</h1>
+        <img class="form-control" class="w-75" src="{{product.image.url}}" alt="{{product.name}}">
+        <input class="form-control" type="file" name="" id="">
+        <label class="form-label" for="">Name: </label>
+        <input class="form-control" value="{{product.name}}" type="text" name="" id="">
 
+        <input type="submit" value="SAVE CHANGES">
         </form>
         
         
