@@ -1,1 +1,11 @@
 {% extends 'main.html' %}
+{% block content %}
+    <div class="container text-center">
+        <form action="" method="post">
+        <img class="w-75" src="{{product.image.url}}" alt="{{product.name}}">
+        <h1 class="form-text">{{product.name}}</h1>
+
+        </form>
+        
+    </div>
+{% endblock content %}
