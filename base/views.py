@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from base.models import Product
 
@@ -24,3 +24,11 @@ def product(request, category, pk):
     if request.method == "POST":
         None
     return render(request, 'base/product.html', context)
+
+def edit_product(request, category, pk,):
+    product_model = Product.objects.get(pk=pk)
+    context = {
+        'product': product_model,
+        'category': category,
+    }
+    return redirect(request, 'base/edit_product', context)
