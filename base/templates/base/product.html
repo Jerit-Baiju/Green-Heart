@@ -1,35 +1,61 @@
 {% extends 'main.html' %} {% block content %} {% load static %}
-<div class="container">
+<link rel="stylesheet" href="{% static 'css/product_page.css' %}">
+<div class="theme3 container">
   <form action="" method="post">
     {% csrf_token %}
-    <div class="form-group text-center">
-      <img src="{{product.image.url}}" width="300" alt="" srcset="" />
-      <h4 class="form-text">Name: {{product.name}}</h4>
-      <h5 class="form-text">Category: {{product.category}}</h5>
-      <h6 class="form-text">Company: {{product.company}}</h6>
-      <h2 class="form-text" id="rate"></h2>
-      <div class="p-2">
-        <label for="" class="form-text">Pack:</label>
-        <select class="btn btn-outline-secondary border-3 w-75" onchange="refresh_pack()" name="pack" id="pack">
-          {% for pack in packs %}
-          <option value="{{pack.id}}">{{pack}}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <label class="form-text" for="">Quantity:</label>
-      <input onkeyup="refresh_pack()" onchange="refresh_pack()" type="number" class="" name="quantity" id="quantity" value="1"  min="1" max="1000">
-      <div class="form-group p-3">
-        <h1 class="text-danger" id="total"></h1>
-      </div>
-      
-      <div class="p-1">
-        <input class="btn btn-secondary w-75" type="submit" value="BUY" />
-      </div>
-      <div class="p-1">
-        <a class="btn btn-secondary w-75" href="{% url 'edit_product' category=category pk=product.id%}">EDIT PRODUCT</a>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <div class="product_image">
+            <img class="w-75" src="{{product.image.url}}" alt="" srcset="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="pt-3">
+            <span class="small-text">{{product.company}}</span> <br>
+            <span class="small-text">{{product.category}}</span>
+            <p class="rate fw-normal">{{product.name}}</p>
+            <p id="total" class="rate fw-normal"></p>
+            <p id="rate" class="rate fw-normal"></p>
+
+          </div>
+          <div class="p-2">
+            <label class="form-label" for="">Pack</label>
+            <div class="ps-4 pe-4">
+              <select id="pack" name="pack" class="form-select" onchange="refresh_pack()">
+                {% for pack in packs %}
+                <option value="{{pack.id}}">{{pack}}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+
+            <label class="form-label">Quantity</label>
+            <div class="ps-4 pe-4">
+              <input onkeyup="refresh_pack()" onchange="refresh_pack()" class="form-control" aria-colcount=""
+                type="number" class="" name="quantity" id="quantity" value="1" min="1" max="1000">
+            </div>
+
+
+          </div>
+          <div class="pt-3">
+            <a class="btn btn-success w-100" href="#">Add to Cart</a>
+          </div>
+          <div class="pt-3">
+            <a class="btn btn-success w-100" href="#">Buy Now</a>
+          </div>
+          <div class="pt-3">
+            <a class="btn btn-success w-100" href="{% url 'edit_product' category=category pk=product.id%}">EDIT
+              PRODUCT</a>
+          </div>
+          <div class="text-center">
+            <img class="w-75" src="{% static 'images/reasons.png' %}" alt="" srcset="">
+          </div>
+        </div>
       </div>
     </div>
   </form>
+
 </div>
 
 <script>
