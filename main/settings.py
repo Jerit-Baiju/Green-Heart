@@ -35,9 +35,6 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     
-    'jazzmin',
-    'livereload',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -150,14 +147,9 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
+if DEBUG:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache'
+        }
     }
-}
-
-JAZZMIN_SETTINGS = {
-    'site_title': 'Green Heart',
-    'site_header': 'Library'
-}
