@@ -20,10 +20,16 @@ def add_product(request):
     pack_types = []
     for choice in pack_choices:
         pack_types.append(choice[0])
+    
+    companies = Company.objects.all()
+    categories = Category.objects.all()
 
     context = {
-        'pack_types': pack_types
+        'pack_types': pack_types,
+        'companies': companies,
+        'categories': categories
     }
+    print(context)
     if request.method == 'POST':
         name = request.POST['name']
         company = request.POST['company']
@@ -48,7 +54,7 @@ def add_product(request):
 def add_pack(request, pk):
     context = {
         'form': forms.PackForm,
-        'product': 'Product.objects.get(pk=pk)'
+        'product': Product.objects.get(pk=pk)
     }
     if request.method == 'POST':
         form = forms.PackForm(request.POST)

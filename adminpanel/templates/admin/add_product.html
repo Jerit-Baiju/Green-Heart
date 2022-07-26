@@ -11,7 +11,7 @@
     <datalist id="companies">
       <select class="form-select">
         {% for company in companies %}
-        <option value="{{company.name}}">{{company.name}}</option>
+        <option value="{{company.company_name}}">{{company.company_name}}</option>
         {% endfor %}
       </select>
     </datalist>
@@ -24,7 +24,7 @@
     <datalist id="categories">
       <select class="form-select">
         {% for category in categories %}
-        <option value="{{category.name}}">{{category.name}}</option>
+        <option value="{{category.category}}">{{category.category}}</option>
         {% endfor %}
       </select>
     </datalist>
