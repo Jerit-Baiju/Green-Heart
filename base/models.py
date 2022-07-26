@@ -48,10 +48,10 @@ class CartProduct(models.Model):
     quantity = models.PositiveIntegerField()
 
 class User(AbstractUser):
-    name = models.CharField(max_length=200, null=True)
-    cart = models.ManyToManyField(CartProduct)
-    phone_number = models.CharField(max_length=12)
-    email = models.EmailField()
+    name = models.CharField(max_length=200)
+    cart = models.ManyToManyField(CartProduct, null=True, blank=True)
+    phone_number = models.CharField(max_length=12, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     # username = models.CharField(unique=True, max_length=200, null=True)
     # email = models.EmailField(max_length=200)
     # log = models.TextField(null=True, blank=True)

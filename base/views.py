@@ -19,7 +19,8 @@ def product(request, category, pk):
         'product': product_model,
         'category': category,
         'packs': packs,
-        'main': packs[0].price
+        'main': packs[0].price,
+        'admin': request.user.is_superuser
     }
     if request.method == "POST":
         None

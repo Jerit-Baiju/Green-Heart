@@ -43,10 +43,13 @@
           <div class="pt-3">
             <a class="btn btn-success w-100" href="#">Buy Now</a>
           </div>
+          {% if admin%}
           <div class="pt-3">
-            <a class="btn btn-success w-100" href="{% url 'edit_product' category=category pk=product.id%}">EDIT
+            <a class="btn btn-success w-100" href="/admin">EDIT
               PRODUCT</a>
           </div>
+          {% endif %}
+          
           <div class="text-center">
             <img class="w-75" src="{% static 'images/reasons.png' %}" alt="" srcset="">
           </div>
