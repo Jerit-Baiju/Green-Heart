@@ -1,53 +1,46 @@
 {% extends 'main.html' %} {% block content %}
-<form action="" method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <div class="container">
-    <label for="">Name:</label>
-    <input required type="text" name='name'> <br>
-    <div class="p-1"></div>
+<div class="container">
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="pt-4"></div>
+    <label class="form-label" for="">Name:</label>
+    <input class="form-control" required type="text" name='name' autocomplete="off">
 
-    <label for="">Company:</label>
-    <input required type="text" name="company" id="" list="companies">
+    <label class="form-label" for="">Company:</label>
+    <input class="form-control" required type="text" name="company" id="" list="companies" autocomplete="off">
     <datalist id="companies">
-      <select>
+      <select class="form-select">
         {% for company in companies %}
         <option value="{{company.name}}">{{company.name}}</option>
         {% endfor %}
       </select>
-    </datalist><br>
-    <div class="p-1"></div>
+    </datalist>
 
-    <label for="">Image:</label>
-    <input required type="file" name="image" id=""> <br>
+    <label class="form-label" for="">Image:</label>
+    <input class="form-control" required type="file" name="image" id="image">
     <div class="p-1"></div>
-
-    <label for="">Category:</label>
-    <input required type="text" name="category" id="" list="categories">
+    <label class="form-label" for="">Category:</label>
+    <input class="form-control" required type="text" name="category" id="" list="categories" autocomplete="off">
     <datalist id="categories">
-      <select>
+      <select class="form-select">
         {% for category in categories %}
         <option value="{{category.name}}">{{category.name}}</option>
         {% endfor %}
       </select>
-    </datalist><br>
-    <div class="p-1"></div>
-
-    <label for="">Quantity:</label>
-    <input required type="text" name="quantity">
+    </datalist>
+    <label class="form-label" for="">Quantity:</label>
+    <input class="form-control" required type="number" name="quantity" autocomplete="off">
     {% for pack_type in pack_types %}
-      <input required type="radio" name="pack_name" id="{{pack_type}}" value="{{pack_type}}">
-      <label for="{{pack_type}}">{{pack_type}}</label>
-    {% endfor %}<br>
-    <div class="p-1"></div>
-
-    <label for="">Price:</label>
-    <input required type="text" name="price"><br>
-    <div class="p-1"></div>
-
-    <input type="submit" value="ADD PRODUCT">
-  </div>
-
-  {{form1.name}}
-
-</form>
+    <div class="form-check">
+      <input required name="pack_name" id="{{pack_type}}" value="{{pack_type}}" class="form-check-input" type="radio" >
+      <label for="pack_type" class="form-check-label">{{pack_type}}</label>
+    </div>
+    {% endfor %}
+    <label class="form-label">Price:</label>
+    <input class="form-control" required type="number" name="price" autocomplete="off">
+    <div class="pt-3 text-center">
+      <input class="btn btn-success" type="submit" value="ADD PRODUCT">
+    </div>
+  </form>
+</div>
 {% endblock content %}
