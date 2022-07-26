@@ -29,7 +29,7 @@
       </select>
     </datalist>
     <label class="form-label" for="">Quantity:</label>
-    <input class="form-control" required type="number" name="quantity" autocomplete="off">
+    <input class="form-control" required type="number" name="quantity" autocomplete="off" value="1" min="1">
     {% for pack_type in pack_types %}
     <div class="form-check">
       <input required name="pack_name" id="{{pack_type}}" value="{{pack_type}}" class="form-check-input" type="radio" >

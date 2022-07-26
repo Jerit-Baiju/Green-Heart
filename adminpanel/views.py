@@ -29,7 +29,6 @@ def add_product(request):
         'companies': companies,
         'categories': categories
     }
-    print(context)
     if request.method == 'POST':
         name = request.POST['name']
         company = request.POST['company']
