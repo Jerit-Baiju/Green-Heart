@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
@@ -18,12 +19,12 @@ class Category(models.Model):
 
 
 class ProductPack(models.Model):
-    quantity = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.DecimalField(max_digits=10, default=1, decimal_places=2)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     pack_choices = (
         ("KG", "KG"),
         ("LTR", "LTR"),
-        ("ML","ML")
+        ("ML", "ML")
     )
     pack_type = models.CharField(
         max_length=10, choices=pack_choices, default='LTR')
@@ -41,3 +42,21 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class CartProduct(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+
+class User(AbstractUser):
+    name = models.CharField(max_length=200, null=True)
+    cart = models.ManyToManyField(CartProduct)
+    phone_number = models.CharField(max_length=12)
+    email = models.EmailField()
+    # username = models.CharField(unique=True, max_length=200, null=True)
+    # email = models.EmailField(max_length=200)
+    # log = models.TextField(null=True, blank=True)
+    # score = models.IntegerField(null=True, blank=True)
+    # USERNAME_FIELD = 'username'
+
+    def __str__(self):
+        return self.username
