@@ -49,7 +49,7 @@ class CartProduct(models.Model):
 
 class User(AbstractUser):
     name = models.CharField(max_length=200)
-    cart = models.ManyToManyField(CartProduct, null=True, blank=True)
+    cart = models.ManyToManyField(CartProduct)
     phone_number = models.CharField(max_length=12, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     # username = models.CharField(unique=True, max_length=200, null=True)
