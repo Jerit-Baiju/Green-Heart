@@ -40,6 +40,9 @@ class Product(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     pack = models.ManyToManyField(ProductPack)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 
@@ -60,3 +63,7 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
